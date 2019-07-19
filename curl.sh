@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd /tmp
 rm -rf tmpcurlsitemap.xml 2>/dev/null
 curl -s -m 10 https://example.com/sitemap.xml > tmpcurlsitemap.xml && echo "[ INFO ] Sitemap downloaded"
 
@@ -40,5 +41,7 @@ echo "ERROR: $ERROR"
 echo "TOTAL: $TOTAL"
 
 rm tmpcurlsitemap.xml && echo "[ INFO ] Sitemap removed"
+
+cd $OLDPWD
 
 exit 0
